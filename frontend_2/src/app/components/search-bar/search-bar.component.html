@@ -1,0 +1,46 @@
+<!-- search-bar.component.html -->
+<div class="search-container">
+  <div class="search-content">
+    <h1 class="search-title">Opensearch project</h1>
+    <div class="search-box">
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="Rechercher..." 
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="onSearch()"
+        style="padding-right: 45px;"
+      >
+      <button class="search-button" (click)="onSearch()">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+    
+    <!-- Indicateur de chargement -->
+    <div *ngIf="isLoading" class="search-loading">
+      <div class="loader"></div>
+      <p>Recherche en cours...</p>
+    </div>
+    
+    <!-- Message d'erreur -->
+    <div *ngIf="hasError" class="search-error">
+      <p>{{ errorMessage }}</p>
+    </div>
+  </div>
+    
+  <!-- Résultats de recherche -->
+  <div *ngIf="searchResult && !isLoading" class="search-results">
+    <div class="results-container" *ngIf="searchResult.API_message && searchResult.API_message.length > 0">
+      <h3 class="results-title">Résultats trouvés ({{ searchResult.API_message.length }})</h3>
+      <div class="results-grid">
+        <div class="result-card" *ngFor="let item of searchResult.API_message">
+          <div class="result-id">#{{ item.id }}</div>
+          <p class="result-description">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="no-results" *ngIf="!searchResult.API_message || searchResult.API_message.length === 0">
+      <p>Aucun résultat trouvé pour "{{ searchTerm }}"</p>
+    </div>
+  </div>
+</div>
