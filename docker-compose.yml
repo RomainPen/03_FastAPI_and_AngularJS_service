@@ -1,0 +1,21 @@
+services:
+  api:
+    container_name : api
+    build: ./Backend_API
+    ports:
+      - "8500:8500"
+    networks :
+      - project_network
+
+  frontend2 :
+    container_name : frontend2
+    build: ./frontend_2
+    ports :
+      - "4200:4200"
+    networks :
+      - project_network
+    environment:
+      - NODE_ENV=development
+
+networks :
+  project_network :

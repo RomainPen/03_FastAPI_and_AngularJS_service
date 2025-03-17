@@ -1,0 +1,23 @@
+# Node
+node_modules
+npm-debug.log
+dist
+coverage
+.angular/cache
+.npm
+.tmp
+
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.project
+.vscode
+*.sublime-workspace
+
+# Divers
+README.md
+*.md
+.editorconfig

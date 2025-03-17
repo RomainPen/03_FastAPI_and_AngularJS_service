@@ -7,7 +7,7 @@ app = FastAPI(title="API Todo List")
 # Configuration CORS pour permettre les requêtes depuis le frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200", "http://172.18.0.3:4200", "http://127.0.0.1:4200", "http://51.158.116.93:4200"],  # Origine du frontend Angular.cli
+    allow_origins=["http://localhost:4200", "http://172.18.0.3:4200", "http://127.0.0.1:4200", "http://51.158.116.93:4200", "http://frontend2:4200"],  # Origine du frontend Angular.cli
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
